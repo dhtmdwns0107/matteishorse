@@ -43,6 +43,7 @@ class Result(models.Model):
     res_id = models.AutoField(primary_key=True)
     res_text = models.CharField(max_length=100)
     res_title = models.CharField(max_length=500)
+    res_div = models.IntegerField(max_length=11)
     test = models.ForeignKey(Test, on_delete=models.CASCADE) # test -> test_id
 
     class Meta():
@@ -50,7 +51,7 @@ class Result(models.Model):
 
 class Mypage(models.Model):
     mp_id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE) # test -> test_id
+    user = models.ForeignKey(User, on_delete=models.CASCADE) # user -> user_id
     test = models.ForeignKey(Test, on_delete=models.CASCADE) # test -> test_id
     test_date = models.DateTimeField('date published')
 

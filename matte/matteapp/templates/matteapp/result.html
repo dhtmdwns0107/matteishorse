@@ -18,7 +18,12 @@
 
   <div>
     <h1>결과페이지@@@@</h1>
-
+    {% for result in result_list %}
+      {% if result.res_id == selected_id %}
+        <div> <p>A{{ result.res_id }}. {{ result.res_title }}</p></div>
+        <div> <p>{{ result.res_text }}</p></div>
+      {% endif %}
+    {% endfor %}
     <br>
     </form>
 
