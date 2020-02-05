@@ -33,7 +33,8 @@
 
 <div>
   <h1>여기가 문제 들어갈 공간@@@@</h1>
-  <form>
+  <form method = "post" action = "{%url 'result' %}" >
+  {%csrf_token%}
   {% for question in question_list %}
 
     <!-- Radio Button Module -->
@@ -70,7 +71,7 @@
    <div class="button-box">
     <button class="button trigger">Submit!</button>
   </div>
-
+  <input type="hidden" name = 'total'>
 </div>
   </form>
 

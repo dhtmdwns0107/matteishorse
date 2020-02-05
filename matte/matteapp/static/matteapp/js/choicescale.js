@@ -1,6 +1,6 @@
 //Global:
 var survey = []; //Bidimensional array: [ [1,3], [2,4] ]
-
+var total = 0 ;
 //Switcher function:
 $(".rb-tab").click(function(){
   //Spot switcher:
@@ -18,10 +18,14 @@ $(".trigger").click(function(){
     var rbValue = parseInt($("#rb-"+i).find(".rb-tab-active").attr("data-value"));
     //Bidimensional array push:
     survey.push([i, rbValue]); //Bidimensional array: [ [1,3], [2,4] ]
+    total += rbValue;
   };
-  //Debug:
-  document.write($(".rb").length)
-  debug();
+  document.querySelector('[name=total]').value = total;
+
+
+  // //Debug:
+  // document.write($(".rb").length)
+  // debug();
 });
 
 //Debug:
