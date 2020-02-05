@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  {%load static%}
+  {% load static %}
 <head>
 
   <meta charset="utf-8">
@@ -60,6 +60,11 @@
 
 <div>
   <h1>여기가 문제 들어갈 공간@@@@</h1>
+
+  {% for question in question_list %}
+    <p>Q{{ question.q_id }}. {{ question.q_text }}</p><br>
+  {% endfor %}
+
 </div>
 
 
