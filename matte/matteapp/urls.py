@@ -7,5 +7,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('index2/', views.index2, name='index2'),
     path('test1/', views.test1, name='test1'),
-    path('<int:q_id>/results/', views.results, name='results'),
+    path('result/', views.result, name='result'),
 ]
