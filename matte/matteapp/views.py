@@ -8,3 +8,6 @@ def index(request):
 
 def index2(request):
     return render(request, 'matteapp/index2.html', {})
+
+def test1(request):
+    return render(request, 'matteapp/test1.html', {})
