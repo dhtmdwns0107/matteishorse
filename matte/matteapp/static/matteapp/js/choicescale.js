@@ -1,4 +1,3 @@
-*/
 //Global:
 var survey = []; //Bidimensional array: [ [1,3], [2,4] ]
 
@@ -21,6 +20,7 @@ $(".trigger").click(function(){
     survey.push([i, rbValue]); //Bidimensional array: [ [1,3], [2,4] ]
   };
   //Debug:
+  document.write($(".rb").length)
   debug();
 });
 
