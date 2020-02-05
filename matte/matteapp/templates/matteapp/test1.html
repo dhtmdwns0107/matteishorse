@@ -20,6 +20,7 @@
 
   <!-- Custom styles for this template -->
   <link href="{% static 'matteapp/css/landing-page.min.css' %}" rel="stylesheet">
+  <link href="{% static 'matteapp/css/choicescale.css' %}" rel="stylesheet">
 
 </head>
 
@@ -60,10 +61,46 @@
 
 <div>
   <h1>여기가 문제 들어갈 공간@@@@</h1>
-
+  <form>
   {% for question in question_list %}
-    <p>Q{{ question.q_id }}. {{ question.q_text }}</p><br>
+
+    <!-- Radio Button Module -->
+<div class="rb-box">
+  <div> <p>Q{{ question.q_id }}. {{ question.q_text }}</p></div>
+  <div id="rb-1" class="rb">
+    <div class="rb-tab rb-tab-active" data-value="1">
+      <div class="rb-spot">
+        <span class="rb-txt">1</span>
+        </div>
+      </div><div class="rb-tab" data-value="2">
+        <div class="rb-spot">
+          <span class="rb-txt">2</span>
+        </div>
+      </div><div class="rb-tab" data-value="3">
+        <div class="rb-spot">
+          <span class="rb-txt">3</span>
+        </div>
+      </div><div class="rb-tab" data-value="4">
+        <div class="rb-spot">
+          <span class="rb-txt">4</span>
+        </div>
+      </div><div class="rb-tab" data-value="5">
+        <div class="rb-spot">
+          <span class="rb-txt">5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
   {% endfor %}
+  <br>
+   <!-- Button -->
+   <div class="button-box">
+    <button class="button trigger">Submit!</button>
+  </div>
+
+</div>
+  </form>
 
 </div>
 
@@ -238,7 +275,8 @@
   <!-- Bootstrap core JavaScript -->
   <script src="{% static 'matteapp/vendor/jquery/jquery.min.js'%}"></script>
   <script src="{% static 'matteapp/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
-
+  <!-- choicescale JavaScript -->
+  <script src="{% static 'matteapp/js/choicescale.js'%}"></script>
 </body>
 
 </html>
