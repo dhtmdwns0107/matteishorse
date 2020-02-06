@@ -16,16 +16,15 @@ def signup(request):
     return render(request, 'matteapp/signup.html', {})
 
 def test1(request):
-    question_list = Question.objects.filter(test_id = 1)
+    test_id = request.GET.get('test_id')
+    question_list = Question.objects.filter(test_id = test_id)
     return render(request, 'matteapp/test1.html', {'question_list' : question_list})
 
-def result(request): # 투표 결과 페이지
+def result(request):
+    test_id = request.GET.get('test_id')
     num = request.POST.get('total')
     print(num)
-    # question = Question.objects.get(pk=q_id) # models.py에서 이거 자체가 객체로 지정되어 있기 때문에
-    # choices = question.choice_set.all()
-    # choices = Choice.objects.filter(question=question) # 이건 뭔 방식이지 근데 위와 같은 방식이라고 한다
-    result_list = Result.objects.filter(test_id = 1)
+    result_list = Result.objects.filter(test_id = test_id)
     
     for result in result_list:
         selected_id = result.res_id
