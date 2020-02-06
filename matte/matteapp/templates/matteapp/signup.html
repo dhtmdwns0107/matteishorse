@@ -1,49 +1,81 @@
+
 <!DOCTYPE html>
 <meta charset= "utf-8">
-{% extends 'matteapp/base.html'%}
 {%load static%}
-{% block content%}
+
 <html lang="en">
-<head th:replace="common/head">
+<link href="{% static 'matteapp/css/signupp.css' %}" rel="stylesheet" type="text/css">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="sie-edge" />
+    <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>마떼에 로그인::회원가입</title>
 </head>
+
 <body>
 
-	<nav th:replace="common/nav"></nav>
-
-	<div class="jumbotron">
-		<div class="container text-center">
-			<form method="post" action="/signup">
-				<div class="form-group">
-					<label for="email">Email:</label> <input type="text"
-						class="form-control" id="email" name="email">
-				</div>
-				<div class="form-group">
-					<label for="pwd">Password:</label> <input type="password"
-						class="form-control" id="pwd" name="pwd">
-				</div>
-				<div class="form-group">
-					<label for="name">Name:</label> <input type="text"
-						class="form-control" id="name" name="name">
-				</div>
-				<div class="form-group">
-					<input type="radio" name="gender" id="female"> <label
-						for="female"><span>여자</span></label> <br> <input type="radio"
-						name="gender" id="male"> <label for="male"><span>남자</span></label>
-				</div>
-				<button class="btn btn-primary btn-block" id="signup">Sign
-					Up</button>
-			</form>
-		</div>
-	</div>
-
-  
-	<script>
-		$("#signup").click(function() {
-			$("form").submit();
-			return false;
-		});
-	</script>
-
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Create Account</h1>
+                <span>회원정보를 입력하세요</span>
+                <input type="text" placeholder="Name">
+                
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <input type="text" placeholder="age">
+                <span class="custom-dropdown">
+                  <select id="sex" name="sex">
+                    <option value="F">Female</option>
+                    <option value="M">Male</option>
+                </select>
+              </span>
+                <span class="custom-dropdown">
+                <select id="address" name="adress">
+                  <option value="서울시">서울시</option>
+                  <option value="경기도">경기도</option>
+                  <option value="경상도">경상도</option>
+                  <option value="충청도">충청도</option>
+                  <option value="전라도">전라도</option>
+                  <option value="강원도">강원도</option>
+              </select>
+            </span>
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Sign In for Matte</h1>
+                <span>회원정보를 입력하세요</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Matte is Horse</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello,Matte people!</h1>
+                    <p>Enter your personal details and start mind tests</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
 </body>
+
 </html>
-{% endblock content%}
+
+
+
+<script src="{% static 'matteapp/js/signup.js'%}"></script>
