@@ -42,19 +42,19 @@
   <div> <p>Q{{ question.q_id }}. {{ question.q_text }}</p></div>
   <div id="rb-{{ question.q_id }}" class="rb">
     <div class="rb-tab rb-tab-active" data-value="0">
-      <div class="rb-spot">
+      <div class="rb-spot" onclick="fnMove('{{ question.q_id }}')">
         <span class="rb-txt">0</span>
         </div>
       </div><div class="rb-tab" data-value="1">
-        <div class="rb-spot">
+        <div class="rb-spot" onclick="fnMove('{{ question.q_id }}')">
           <span class="rb-txt">1</span>
         </div>
       </div><div class="rb-tab" data-value="2">
-        <div class="rb-spot">
+        <div class="rb-spot" onclick="fnMove('{{ question.q_id }}')">
           <span class="rb-txt">2</span>
         </div>
       </div><div class="rb-tab" data-value="3">
-        <div class="rb-spot">
+        <div class="rb-spot" onclick="fnMove('{{ question.q_id }}')">
           <span class="rb-txt">3</span>
         </div>
       </div>
@@ -169,6 +169,13 @@
       </div>
     </div>
   </section>
+
+  <script>
+    function fnMove(seq){
+        var offset = $("#rb-" + seq).offset();
+        $('html, body').animate({scrollTop : offset.top}, 400);
+    }
+  </script>
 
 </body>
 
