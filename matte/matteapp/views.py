@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from .models import Question, Result
 
 def index(request):
-    return render(request, 'matteapp/index.html', {})
+    question_list = Question.objects.filter(test_id = 1)
+    return render(request, 'matteapp/index.html', {'question_list' : question_list})
 
 
 def index2(request):
