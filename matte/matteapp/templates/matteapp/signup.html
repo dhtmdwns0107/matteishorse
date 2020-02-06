@@ -19,39 +19,42 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
                 <h1>Create Account</h1>
                 <span>회원정보를 입력하세요</span>
-                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Name" name="username">
                 
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <input type="text" placeholder="age">
+                <input type="email" placeholder="Email" name="useremail">
+                <input type="password" placeholder="Password" name="password">
+                <input type="text" placeholder="age" name="userage">
                 <span class="custom-dropdown">
-                  <select id="sex" name="sex">
+                  <select id="sex" name="usersex">
                     <option value="F">Female</option>
                     <option value="M">Male</option>
-                </select>
-              </span>
+                  </select>
+                </span>
                 <span class="custom-dropdown">
-                <select id="address" name="adress">
-                  <option value="서울시">서울시</option>
-                  <option value="경기도">경기도</option>
-                  <option value="경상도">경상도</option>
-                  <option value="충청도">충청도</option>
-                  <option value="전라도">전라도</option>
-                  <option value="강원도">강원도</option>
-              </select>
-            </span>
+                  <select id="address" name="useraddr">
+                    <option value="서울시">서울시</option>
+                    <option value="경기도">경기도</option>
+                    <option value="경상도">경상도</option>
+                    <option value="충청도">충청도</option>
+                    <option value="전라도">전라도</option>
+                    <option value="강원도">강원도</option>
+                  </select>
+                </span>
                 <button>Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form method="post" action="{% url 'signin' %}">
+                {% csrf_token %}
                 <h1>Sign In for Matte</h1>
                 <span>회원정보를 입력하세요</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <!-- <input type="email" placeholder="Email" name="email"> -->
+                <input type="text" placeholder="name" name="username" autocomplete="off">
+                <input type="password" placeholder="Password" name="password">
                 <button>Sign In</button>
             </form>
         </div>

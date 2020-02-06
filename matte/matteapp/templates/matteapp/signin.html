@@ -10,14 +10,15 @@
 	
 	<div class="jumbotron">
 		<div class="container text-center">
-			<form method="post" action="matte/signin/">
+			<form method="post" action="{% url 'signin' %}">
+				{% csrf_token %}
 				<div class="form-group" style="color:blue">
 					<label for="email">Email:</label> <input type="text"
 						class="form-control" id="email" name="email">
 				</div>
 				<div class="form-group">
 					<label for="pwd">Password:</label> <input type="password"
-						class="form-control" id="pwd" name="pwd">
+						class="form-control" id="pwd" name="password">
 				</div>
 				<button class="btn btn-pink btn-left" id="signin" >Sign
 					in</button>

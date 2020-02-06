@@ -59,10 +59,15 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#mypage">Mypage</a>
           </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="btn btn-primary" href="/matte/signout/">Sign Out</a>
+          </li>
+          {% else %}
           <li class="nav-item">
             <a class="btn btn-primary" href="/matte/signup/">Sign In</a>
           </li>
-          
+          {% endif %}
         </ul>
       </div>
     </div>
