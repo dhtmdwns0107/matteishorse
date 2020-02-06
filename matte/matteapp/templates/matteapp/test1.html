@@ -22,12 +22,12 @@
 <div>
   <h4 style="padding-top: 20px; text-align: center;">문제에 대한 응답을 선택해주세요.</h4>
   <form method = "post" action = "{%url 'result' %}" >
-  {%csrf_token%}
+  {% csrf_token %}
   {% for question in question_list %}
 
     <!-- Radio Button Module -->
-<div class="rb-box">
-  <div> <p>Q{{ question.q_id }}. {{ question.q_text }}</p></div>
+  <div class="rb-box">
+  <div> <p>Q{{ forloop.counter }}. {{ question.q_text }}</p></div>
   <div id="rb-{{ question.q_id }}" class="rb">
     <div class="rb-tab rb-tab-active" data-value="0">
       <div class="rb-spot" onclick="fnMove('{{ question.q_id }}')">
