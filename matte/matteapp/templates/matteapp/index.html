@@ -38,10 +38,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#tests">Tests</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio"></a>
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Tests</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
@@ -72,7 +69,7 @@
       <div class="intro-text">
         <div class="intro-lead-in">Mind Test on the Way!</div>
         <div class="intro-heading text-uppercase">Matte is Horse</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="test1/">Start Tests</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#portfolio">Start Tests</a>
       </div>
     </div>
   </header>
@@ -126,7 +123,11 @@
       </div>
       <div class="row">
         <div class="col-md-4 col-sm-6 portfolio-item">
+          {% if request.user.is_authenticated %}
           <a class="portfolio-link" href="/matte/test1/?test_id=1">
+          {% else %}
+          <a class="portfolio-link" href="/matte/signup/">
+          {% endif %}
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -140,7 +141,11 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
+          {% if request.user.is_authenticated %}
           <a class="portfolio-link" href="/matte/test1/?test_id=2">
+          {% else %}
+          <a class="portfolio-link" href="/matte/signup/">
+          {% endif %}
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -154,7 +159,11 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
+          {% if request.user.is_authenticated %}
           <a class="portfolio-link" href="/matte/test1/?test_id=3">
+          {% else %}
+          <a class="portfolio-link" href="/matte/signup/">
+          {% endif %}
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -168,7 +177,11 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
+          {% if request.user.is_authenticated %}
           <a class="portfolio-link" href="/matte/test1/?test_id=4">
+          {% else %}
+          <a class="portfolio-link" href="/matte/signup/">
+          {% endif %}
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -182,7 +195,11 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
+          {% if request.user.is_authenticated %}
           <a class="portfolio-link" href="/matte/test1/?test_id=5">
+          {% else %}
+          <a class="portfolio-link" href="/matte/signup/">
+          {% endif %}
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -196,7 +213,11 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
+          {% if request.user.is_authenticated %}
           <a class="portfolio-link" href="/matte/test1/?test_id=6">
+          {% else %}
+          <a class="portfolio-link" href="/matte/signup/">
+          {% endif %}
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
