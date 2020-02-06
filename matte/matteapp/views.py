@@ -9,6 +9,11 @@ def index(request):
 def index2(request):
     return render(request, 'matteapp/index2.html', {})
 
+def signin(request):
+    return render(request, 'matteapp/signin.html', {})
+def signup(request):
+    return render(request, 'matteapp/signup.html', {})
+
 def test1(request):
     question_list = Question.objects.filter(test_id = 1)
     return render(request, 'matteapp/test1.html', {'question_list' : question_list})

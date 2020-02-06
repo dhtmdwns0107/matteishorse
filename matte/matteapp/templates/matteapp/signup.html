@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset= "utf-8">
+{% extends 'matteapp/base.html'%}
+{%load static%}
+{% block content%}
+<html lang="en">
+<head th:replace="common/head">
+</head>
+<body>
+
+	<nav th:replace="common/nav"></nav>
+
+	<div class="jumbotron">
+		<div class="container text-center">
+			<form method="post" action="/signup">
+				<div class="form-group">
+					<label for="email">Email:</label> <input type="text"
+						class="form-control" id="email" name="email">
+				</div>
+				<div class="form-group">
+					<label for="pwd">Password:</label> <input type="password"
+						class="form-control" id="pwd" name="pwd">
+				</div>
+				<div class="form-group">
+					<label for="name">Name:</label> <input type="text"
+						class="form-control" id="name" name="name">
+				</div>
+				<div class="form-group">
+					<input type="radio" name="gender" id="female"> <label
+						for="female"><span>여자</span></label> <br> <input type="radio"
+						name="gender" id="male"> <label for="male"><span>남자</span></label>
+				</div>
+				<button class="btn btn-primary btn-block" id="signup">Sign
+					Up</button>
+			</form>
+		</div>
+	</div>
+
+  
+	<script>
+		$("#signup").click(function() {
+			$("form").submit();
+			return false;
+		});
+	</script>
+
+</body>
+</html>
+{% endblock content%}
