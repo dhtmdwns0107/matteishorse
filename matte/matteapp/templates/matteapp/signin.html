@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'matteapp/base.html'%}
+{%load static%}
+{% block content%}
+<head th:replace="common/head">
+</head>
+<body>
+
+	
+	<div class="jumbotron">
+		<div class="container text-center">
+			<form method="post" action="matte/signin/">
+				<div class="form-group" style="color:blue">
+					<label for="email">Email:</label> <input type="text"
+						class="form-control" id="email" name="email">
+				</div>
+				<div class="form-group">
+					<label for="pwd">Password:</label> <input type="password"
+						class="form-control" id="pwd" name="pwd">
+				</div>
+				<button class="btn btn-primary btn-left" id="signin" >Sign
+					in</button>
+				<button class="btn btn-danger btn-right" id="signup">Not a Member? Sign
+					up</button>
+			</form>
+		</div>
+	</div>
+
+	<script>
+		$("#signin").click(function() {
+			$("form").submit();
+			return false;
+		});
+	
+		$("#signup").click(function() {
+			location = "/matte/signup/";
+			return false;
+		});
+	</script>
+
+</body>
+</html>
+{% endblock content%}
