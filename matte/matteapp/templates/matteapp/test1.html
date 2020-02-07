@@ -26,11 +26,15 @@
   {% for question in question_list %}
 
     <!-- Radio Button Module -->
-  <div class="rb-box">
+  {% if forloop.counter == 1 %}
+  <div id="rb-box-{{ forloop.counter }}" class="rb-box" style="opacity:1">
+  {% else %}
+  <div id="rb-box-{{ forloop.counter }}" class="rb-box" style="opacity:0.5">
+  {% endif %}
   <input type="hidden" name="test_id" value="{{ question.test_id }}">
   <div> <p>Q{{ forloop.counter }}. {{ question.q_text }}</p></div>
   <div id="rb-{{ forloop.counter }}" class="rb">
-    <div class="rb-tab rb-tab-active" data-value="0">
+    <div class="rb-tab rb-tab" data-value="0">
       <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
         <span class="rb-txt">0</span>
         </div>
@@ -64,8 +68,9 @@
 
   <script>
     function fnMove(seq){
-        var offset = $("#rb-" + seq).offset();
-        $('html, body').animate({scrollTop : offset.top}, 400);
+      $('#rb-box-'+String(Number(seq)+1)).attr("style", "opacity:1;");
+      var offset = $("#rb-" + seq).offset();
+      $('html, body').animate({scrollTop : offset.top}, 400);
     }
   </script>
 
