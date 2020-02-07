@@ -47,8 +47,8 @@ class Choice(models.Model):
     c_id = models.AutoField(primary_key=True)
     c_val = models.IntegerField()
     c_date = models.DateTimeField('date published')
-    q = models.ForeignKey(Question, on_delete=models.RESTRICT) # q -> q_id
-    user = models.ForeignKey(User, on_delete=models.RESTRICT) # user -> user_id
+    q = models.ForeignKey(Question, on_delete=models.CASCADE) # q -> q_id
+    user = models.ForeignKey(User, on_delete=models.CASCADE) # user -> user_id
 
     class Meta():
         db_table = 'choice'
