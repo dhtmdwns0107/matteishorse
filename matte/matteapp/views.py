@@ -51,9 +51,10 @@ def test1(request):
     return render(request, 'matteapp/test1.html', {'question_list' : question_list})
 
 def result(request):
-    test_id = request.GET.get('test_id')
+    #test_id = request.GET.get('test_id')
+    test_id = request.POST.get('test_id')
     num = request.POST.get('total')
-    print(num)
+    print(num, test_id)
     result_list = Qresult.objects.filter(test_id = test_id)
     
     for result in result_list:

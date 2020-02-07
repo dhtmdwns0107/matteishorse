@@ -35,7 +35,7 @@ class Question(models.Model):
 
 class Choice(models.Model):
     c_id = models.AutoField(primary_key=True)
-    c_val = models.IntegerField(max_length=11)
+    c_val = models.IntegerField()
     q = models.ForeignKey(Question, on_delete=models.CASCADE) # q -> q_id
 
     class Meta():
@@ -45,7 +45,7 @@ class Qresult(models.Model):
     res_id = models.AutoField(primary_key=True)
     res_text = models.CharField(max_length=100)
     res_title = models.CharField(max_length=500)
-    res_div = models.IntegerField(max_length=11)
+    res_div = models.IntegerField()
     test = models.ForeignKey(Mindtest, on_delete=models.CASCADE) # test -> test_id
 
     class Meta():

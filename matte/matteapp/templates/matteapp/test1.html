@@ -27,22 +27,23 @@
 
     <!-- Radio Button Module -->
   <div class="rb-box">
+  <input type="hidden" name="test_id" value="{{ question.test_id }}">
   <div> <p>Q{{ forloop.counter }}. {{ question.q_text }}</p></div>
-  <div id="rb-{{ question.q_id }}" class="rb">
+  <div id="rb-{{ forloop.counter }}" class="rb">
     <div class="rb-tab rb-tab-active" data-value="0">
-      <div class="rb-spot" onclick="fnMove('{{ question.q_id }}')">
+      <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
         <span class="rb-txt">0</span>
         </div>
       </div><div class="rb-tab" data-value="1">
-        <div class="rb-spot" onclick="fnMove('{{ question.q_id }}')">
+        <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
           <span class="rb-txt">1</span>
         </div>
       </div><div class="rb-tab" data-value="2">
-        <div class="rb-spot" onclick="fnMove('{{ question.q_id }}')">
+        <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
           <span class="rb-txt">2</span>
         </div>
       </div><div class="rb-tab" data-value="3">
-        <div class="rb-spot" onclick="fnMove('{{ question.q_id }}')">
+        <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
           <span class="rb-txt">3</span>
         </div>
       </div>
@@ -55,7 +56,7 @@
    <div class="button-box">
     <button class="button trigger">Submit!</button>
   </div>
-  <input type="hidden" name = 'total'>
+  <input type="hidden" name="total">
 </div>
   </form>
 <br><br><br>
