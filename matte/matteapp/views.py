@@ -4,6 +4,7 @@ from .models import Question, Qresult, Profile, Choice
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import logout
+from django.utils import timezone
 
 def index(request):
     question_list = Question.objects.filter(test_id = 1)
@@ -59,7 +60,7 @@ def result(request):
     #test_id = request.GET.get('test_id')
     test_id = request.POST.get('test_id')
     num = request.POST.get('total')
-    print(num, test_id)
+    #print(num, test_id)
     result_list = Qresult.objects.filter(test_id = test_id)
     
     for result in result_list:
@@ -67,5 +68,13 @@ def result(request):
         if result.res_div >= int(num):
             break
 
-    print(selected_id)
+    #print(selected_id)
+    choice = Choice(
+        c_val = num,
+        c_date = timezone.now(),
+        q_id = test_id,
+        user_id = request.user.id
+    )
+    choice.save()
+
     return render(request, 'matteapp/result.html', {'result_list' : result_list, 'selected_id' : selected_id})
