@@ -31,26 +31,36 @@
   {% else %}
   <div id="rb-box-{{ forloop.counter }}" class="rb-box" style="opacity:0.5">
   {% endif %}
-  <input type="hidden" name="test_id" value="{{ question.test_id }}">
-  <div> <p>Q{{ forloop.counter }}. {{ question.q_text }}</p></div>
-  <div id="rb-{{ forloop.counter }}" class="rb">
-    <div class="rb-tab rb-tab" data-value="0">
-      <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
-        <span class="rb-txt">0</span>
+    <input type="hidden" name="test_id" value="{{ question.test_id }}">
+    <div> <p>Q{{ forloop.counter }}. {{ question.q_text }}</p></div>
+    <div id="rb-{{ forloop.counter }}" class="rb">
+      <div class="rb-tab rb-tab" data-value="0">
+        <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
+          <span class="rb-txt">0</span>
         </div>
-      </div><div class="rb-tab" data-value="1">
+      </div>
+      <div class="rb-tab" data-value="1">
         <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
           <span class="rb-txt">1</span>
         </div>
-      </div><div class="rb-tab" data-value="2">
+      </div>
+      <div class="rb-tab" data-value="2">
         <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
           <span class="rb-txt">2</span>
         </div>
-      </div><div class="rb-tab" data-value="3">
+      </div>
+      <div class="rb-tab" data-value="3">
         <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
           <span class="rb-txt">3</span>
         </div>
       </div>
+      {% if question.test_id == 4 or question.test_id == 5 or question.test_id == 6 %}
+      <div class="rb-tab" data-value="4">
+        <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
+          <span class="rb-txt">4</span>
+        </div>
+      </div>
+      {% endif %}      
     </div>
   </div>
   <br>
