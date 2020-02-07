@@ -28,6 +28,80 @@
     </form>
 
   </div>
+  
+  <div class="radarChart"></div>
+
+  {% for sum in sum_list %}
+  <input type="hidden" name="sum-{{ forloop.counter }}" value="{{ sum }}">
+  {% endfor %}
+
+  <input type="hidden" name="max-score" value="{{ max_score }}">
+  
+  <!-- D3.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+  <script src="{% static 'matteapp/js/radarChart.js'%}"></script>
+  <style>
+    .legend {
+      font-weight: bold;
+      fill: #333333;
+    }
+    
+    .tooltip {
+      fill: #333333;
+    }
+  </style>
+  <script>
+      
+    /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
+    
+    ////////////////////////////////////////////////////////////// 
+    //////////////////////// Set-Up ////////////////////////////// 
+    ////////////////////////////////////////////////////////////// 
+
+    var margin = {top: 100, right: 100, bottom: 100, left: 100},
+      width = Math.min(window.innerWidth * 0.7, window.innerWidth - 10) - margin.left - margin.right,
+      height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+        
+    ////////////////////////////////////////////////////////////// 
+    ////////////////////////// Data ////////////////////////////// 
+    ////////////////////////////////////////////////////////////// 
+
+    var sum1 = document.querySelector('[name=sum-1]').value;
+    var sum2 = document.querySelector('[name=sum-2]').value;
+    var sum3 = document.querySelector('[name=sum-3]').value;
+    var sum4 = document.querySelector('[name=sum-4]').value;
+    var sum5 = document.querySelector('[name=sum-5]').value;
+    var sum6 = document.querySelector('[name=sum-6]').value;
+
+    var data = [
+          [
+          {axis:"~ 10 대",value:sum1},
+          {axis:"20 대",value:sum2},
+          {axis:"30 대",value:sum3},
+          {axis:"40 대",value:sum4},
+          {axis:"50 대",value:sum5},
+          {axis:"60 대 ~",value:sum6}
+          ]
+        ];
+    ////////////////////////////////////////////////////////////// 
+    //////////////////// Draw the Chart ////////////////////////// 
+    ////////////////////////////////////////////////////////////// 
+
+    var color = d3.scale.ordinal()
+      .range(["#EDC951"]);
+      
+    var radarChartOptions = {
+      w: width,
+      h: height,
+      margin: margin,
+      maxValue: document.querySelector('[name=max-score]').value,
+      levels: 3,
+      roundStrokes: true,
+      color: color
+    };
+    //Call function to draw the Radar chart
+    RadarChart(".radarChart", data, radarChartOptions);
+  </script>
 
 </body>
 

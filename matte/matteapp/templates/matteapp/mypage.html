@@ -8,41 +8,19 @@
 <br>
 <br>
 <br>
-
-꾸미쟝 헤헤
-
-
-<a class="btn btn-primary" href="/matte/update/">회원정보 수정</a>
-
-<section class="bg-light page-section" id="portfolio">
- 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">심리검사 목록</h2>
-          <h3 class="section-subheading text-muted">Mind Tests 4 U</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          {% if request.user.is_authenticated %}
-          <a class="portfolio-link" href="/matte/test1/?test_id={{test_id}}">
-          {% else %}
-          <a class="portfolio-link" href="/matte/signup/">
-          {% endif %}
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="{% static 'matteapp/img/portfolio/01-thumbnail.jpg' %}" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>{{test_title}}</h4>
-            <p class="text-muted">{{test_text}}</p>
-          </div>
-        </div>
-
-</section>
+<div>
+  <h1>마이페이지@@@@</h1>
+  
+  {% for myresult in myresult_list %}
+    {% for mypage in mypage_list %}
+      {% if mypage.res_id == myresult.res_id %}
+        {{myresult.res_title}}
+        <br>
+        {{myresult.res_text}}
+        <br>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</div>
 
 {% endblock content%}
