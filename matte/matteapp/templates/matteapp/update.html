@@ -12,16 +12,12 @@
 <br>
 <h1>회원수정</h1>
 {{username}}
-<form action="{% url 'update' %}" method='POST'>
-    {% csrf_token %}
-    username : <input type="text" name="username">
-    <br>
-    {{email}}
-    <br>
-    email : <input type="text" name="email">
-    <br>
-    <input type="submit" value="수정" id="subbmit">
-</form>
+    <form action="{% url 'update' %}" method='POST'>
+        {% csrf_token %}
+        username : <input type="text" name="username">
+        <input type="submit" value="회원수정">
+    </form>
+
 
 <br>
 <br>
