@@ -64,10 +64,16 @@ def update(request):
     if request.method == 'POST':
         #id = request.user.id
         #user = User.objects.get(pk=id)
-        user.username = request.POST.get('username')
+        update_name = request.POST.get('username')
+        if update_name:
+            user.username = update_name
+        
+        update_email = request.POST.get('email')
+        if update_email:
+            user.email = update_email
         user.save()
         # return redirect('/')
-    return render(request, 'matteapp/update.html', {'username':user.username})
+    return render(request, 'matteapp/update.html', {'username':user.username, 'email':user.email})
 
 def result(request):
     test_id = request.POST.get('test_id')
