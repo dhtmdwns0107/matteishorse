@@ -76,16 +76,18 @@ def update(request):
     return render(request, 'matteapp/update.html', {'username':user.username, 'email':user.email})
 
 def result(request):
+    #test_id = request.GET.get('test_id')
     test_id = request.POST.get('test_id')
     num = request.POST.get('total')
+    #print(num, test_id)
     result_list = Qresult.objects.filter(test_id = test_id)
     
-    selected_id = 1
     for result in result_list:
-        if result.res_div > int(num):
-            break
         selected_id = result.res_id
+        if result.res_div >= int(num):
+            break
 
+    #print(selected_id)
     choice = Choice(
         c_val = num,
         c_date = timezone.now(),
