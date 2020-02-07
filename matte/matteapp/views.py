@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Question, Qresult
+from .models import Question, Qresult, Profile, Choice
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import logout
@@ -33,12 +33,17 @@ def signup(request):
         user = User.objects.create_user(
             username = request.POST['username'],
             password = request.POST['password'],
-            email = request.POST['useremail'],
-            # user_age = request.POST['userage'],
-            # user_sex = request.POST['usersex'],
-            # user_addr = request.POST['useraddr']
+            email = request.POST['useremail']
         )
         auth.login(request, user)
+        profile = Profile(
+            gender = request.POST['usersex'],
+            age = request.POST['userage'],
+            addr = request.POST['useraddr'],
+            user_id = request.user.id
+        )
+        profile.save()
+
     return render(request, 'matteapp/signup.html', {})
 
 def signout(request):

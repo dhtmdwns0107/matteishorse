@@ -13,6 +13,16 @@ from django.contrib.auth.models import User
 
 #     class Meta():
 #         db_table = 'user'
+class Profile(models.Model):
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
+    p_id = models.AutoField(primary_key=True)
+    gender = models.TextField(max_length=2, blank=True)
+    age = models.IntegerField()
+    addr = models.CharField(max_length=30, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta():
+        db_table = 'profile'
 
 class Mindtest(models.Model):
     test_id = models.AutoField(primary_key=True)
@@ -36,7 +46,9 @@ class Question(models.Model):
 class Choice(models.Model):
     c_id = models.AutoField(primary_key=True)
     c_val = models.IntegerField()
-    q = models.ForeignKey(Question, on_delete=models.CASCADE) # q -> q_id
+    c_date = models.DateTimeField('date published')
+    q = models.ForeignKey(Question, on_delete=models.RESTRICT) # q -> q_id
+    user = models.ForeignKey(User, on_delete=models.RESTRICT) # user -> user_id
 
     class Meta():
         db_table = 'choice'
