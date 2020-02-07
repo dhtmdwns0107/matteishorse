@@ -51,10 +51,23 @@ def signout(request):
     logout(request)
     return render(request, 'matteapp/index.html', {})
 
+def mypage(request):
+    return render(request, 'matteapp/mypage.html', {})
+
 def test1(request):
     test_id = request.GET.get('test_id')
     question_list = Question.objects.filter(test_id = test_id)
     return render(request, 'matteapp/test1.html', {'question_list' : question_list})
+
+def update(request):
+    user = User.objects.get(username = request.user.username)
+    if request.method == 'POST':
+        #id = request.user.id
+        #user = User.objects.get(pk=id)
+        user.username = request.POST.get('username')
+        user.save()
+        # return redirect('/')
+    return render(request, 'matteapp/update.html', {'username':user.username})
 
 def result(request):
     #test_id = request.GET.get('test_id')
