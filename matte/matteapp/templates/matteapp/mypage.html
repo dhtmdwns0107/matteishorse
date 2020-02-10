@@ -107,13 +107,10 @@
         <a href="/matte/test1/?test_id={{ myresult.test_id }}" class="toggle-info btn">
           {{ myresult.test_id}}
           {% for m in mindtest_list %}
-          
             {% if mypage.test_id == m.test_id %}
               {{ m.test_info}}
             {% endif %}
-
           {% endfor %}
-
           <span class="left"></span>
           <span class="right"></span>
         </a>
@@ -125,10 +122,13 @@
         <div class="card-description" style="color: black;">
           {{myresult.res_text}}
         </div>
-        <div class="card-flap flap2">
-
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-description" style="color: darkgray;">
+          <br>검사일자 : {{mypage.test_date}}
         </div>
       </div>
+
     </div>
   
   </div>
