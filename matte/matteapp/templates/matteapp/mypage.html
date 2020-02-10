@@ -92,39 +92,46 @@
   {% for myresult in myresult_list %}
   {% for mypage in mypage_list %}
   {% if mypage.res_id == myresult.res_id %}
-<div class="cards">
+  <div class="cards">
 
-  <div class="card">
-    <div class="card__image-holder">
-      <img class="card__image" src="{{myresult.res_imglink}}" alt="wave" style="width: 300px;">
-    </div>
-    <div class="card-title" style="color: black;">
-      <a href="#" class="toggle-info btn">
-        {{myresult.test_id}}
-        <span class="left"></span>
-        <span class="right"></span>
-      </a>
-      <h2 style="color: black;">
-        {{myresult.test_id}}
-        <small>{{myresult.res_title}}</small>
-      </h2>
-    </div>
-    <div class="card-flap flap1">
-      <div class="card-description" style="color: black;">
-        {{myresult.res_text}}
+    <div class="card">
+      <div class="card__image-holder">
+        <img class="card__image" src="{{myresult.res_imglink}}" alt="wave" style="width: 300px;">
       </div>
-      <div class="card-flap flap2">
-        <div class="card-actions">
-          <a href="#" class="btn">결과 자세히 보기</a>
+      <div class="card-title" style="color: black;">
+        <a href="#" class="toggle-info btn">
+          {{ myresult.test_id}}
+          {% for m in mindtest_list %}
+          
+            {% if mypage.test_id == m.test_id %}
+              {{ m.test_info}}
+            {% endif %}
+
+          {% endfor %}
+
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2 style="color: black;">
+          <small>{{myresult.res_title}}</small>
+        </h2>
+      </div>
+      <div class="card-flap flap1">
+        <div class="card-description" style="color: black;">
+          {{myresult.res_text}}
+        </div>
+        <div class="card-flap flap2">
+          <div class="card-actions">
+            <a href="#" class="btn">결과 자세히 보기</a>
+          </div>
         </div>
       </div>
     </div>
+  
   </div>
- 
-</div>
-{% endif %}
-{% endfor %}
-{% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
   
   
   
