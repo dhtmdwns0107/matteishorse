@@ -10,10 +10,6 @@ def index(request):
     question_list = Question.objects.filter(test_id = 1)
     return render(request, 'matteapp/index.html', {'question_list' : question_list})
 
-
-def index2(request):
-    return render(request, 'matteapp/index2.html', {})
-
 def signin(request):
     if request.method == "POST":
         
