@@ -13,7 +13,7 @@ html, body {
   
   .rb-box {
     width: 80%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 50px auto;
     padding: 1.3em;
     background: #292942;
@@ -44,7 +44,7 @@ html, body {
   .rb-tab {
     display: inline-block;
     position: relative;
-    width: 18%;
+    width: 12%;
   }
   
   .rb-txt {
