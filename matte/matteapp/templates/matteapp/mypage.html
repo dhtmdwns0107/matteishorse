@@ -1,30 +1,206 @@
-{% extends 'matteapp/base.html'%}
-{%load static%}
-{% block content%}
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div>
-  <a class="btn btn-primary" href="/matte/update/">회원정보 수정</a>
-</div>
-<div>
+<!DOCTYPE html>
+<html lang="en">
 
-  <h1>마이페이지@@@@</h1>
-  
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>[마인드테스트] Matte is Horse</title>
+
+  {%load static%}
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'matteapp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'matteapp/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link href="{% static 'matteapp/vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet"
+    type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+    type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'matteapp/css/agency.min.css' %}" rel="stylesheet">
+  <link href="{% static 'matteapp/css/choicescale.css' %}" rel="stylesheet">
+  <link href="{% static 'matteapp/css/mypage.css' %}" rel="stylesheet">
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'matteapp/vendor/jquery/jquery.min.js'%}"></script>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/matte/">Matte is Horse</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Tests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/matte/mypage">Mypage</a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="btn btn-primary" href="/matte/signout/">Sign Out</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="btn btn-primary" href="/matte/signup/">Sign In</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div>
+    <a class="btn btn-primary" href="/matte/update/">회원정보 수정</a>
+  </div>
+  <div>
+
+    <h1>마이페이지@@@@</h1>
+    <br><br>
+
+  </div>
+
   {% for myresult in myresult_list %}
-    {% for mypage in mypage_list %}
-      {% if mypage.res_id == myresult.res_id %}
-        {{myresult.res_title}}
-        <br>
-        {{myresult.res_text}}
-        <br>
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-</div>
+  {% for mypage in mypage_list %}
+  {% if mypage.res_id == myresult.res_id %}
+<div class="cards">
 
-{% endblock content%}
+  <div class="card">
+    <div class="card__image-holder">
+      <img class="card__image" src="{{myresult.res_imglink}}" alt="wave" style="width: 300px;">
+    </div>
+    <div class="card-title" style="color: black;">
+      <a href="#" class="toggle-info btn">
+        {{myresult.test_id}}
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2 style="color: black;">
+        {{myresult.test_id}}
+        <small>{{myresult.res_title}}</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description" style="color: black;">
+        {{myresult.res_text}}
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <a href="#" class="btn">결과 자세히 보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+{% endif %}
+{% endfor %}
+{% endfor %}
+  
+  
+  
+
+
+
+<!-- Footer -->
+<footer class="footer bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item">
+            <a href="#">About</a>
+          </li>
+          <li class="list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#">Contact</a>
+          </li>
+          <li class="list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#">Terms of Use</a>
+          </li>
+          <li class="list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#">Privacy Policy</a>
+          </li>
+        </ul>
+        <p class="text-muted small mb-4 mb-lg-0">&copy; Matte is Horse 2020. All Rights Reserved.</p>
+      </div>
+      <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item mr-3">
+            <a href="#">
+              <i class="fab fa-facebook fa-2x fa-fw"></i>
+            </a>
+          </li>
+          <li class="list-inline-item mr-3">
+            <a href="#">
+              <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fab fa-instagram fa-2x fa-fw"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+ 
+
+  <script src="{% static 'matteapp/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'matteapp/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="{% static 'matteapp/js/jqBootstrapValidation.js'%}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'matteapp/js/mypage.js'%}"></script>
+  <script src="{% static 'matteapp/js/agency.min.js'%}"></script>
+
+  <!-- choicescale JavaScript -->
+  <script src="{% static 'matteapp/js/choicescale.js'%}"></script>
+
+</body>
+
+</html>
