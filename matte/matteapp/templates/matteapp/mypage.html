@@ -84,7 +84,7 @@
   </div>
   <div>
 
-    <h1>마이페이지@@@@</h1>
+    <h1>[ 마이페이지 ]</h1>
     <br><br>
 
   </div>
@@ -99,7 +99,7 @@
         <img class="card__image" src="{{myresult.res_imglink}}" alt="wave" style="width: 300px;">
       </div>
       <div class="card-title" style="color: black;">
-        <a href="#" class="toggle-info btn">
+        <a href="/matte/test1/?test_id={{ myresult.test_id }}" class="toggle-info btn">
           {{ myresult.test_id}}
           {% for m in mindtest_list %}
           
@@ -121,9 +121,7 @@
           {{myresult.res_text}}
         </div>
         <div class="card-flap flap2">
-          <div class="card-actions">
-            <a href="#" class="btn">결과 자세히 보기</a>
-          </div>
+
         </div>
       </div>
     </div>
