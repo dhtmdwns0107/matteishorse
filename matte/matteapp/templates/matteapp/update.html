@@ -10,19 +10,24 @@
 <br>
 <br>
 <br>
-<h1>회원수정</h1>
-{{username}}
-<form action="{% url 'update' %}" method='POST'>
-    {% csrf_token %}
-    username : <input type="text" name="username">
+<div style="text-align: center;">
+    <h1>회원수정</h1>
     <br>
-    {{email}}
-    <br>
-    email : <input type="text" name="email">
-    <br>
-    <input type="submit" value="수정" id="subbmit">
-</form>
+    <form action="{% url 'update' %}" method='POST'>
+        {% csrf_token %}
+        <div>
+            <div style="display:inline-block">username : </div>
+            <div style="display:inline-block"><input type="text" name="username" value="{{username}}"></div>
+            <br>
+            <br>        
+            <div style="display:inline-block">email : </div>
+            <div style="display:inline-block"><input type="text" name="email" value="{{email}}"></div>
+        </div>
+        <br>
 
+        <input type="submit" value="수정" id="subbmit">
+    </form>
+</div>
 <br>
 <br>
 <br>

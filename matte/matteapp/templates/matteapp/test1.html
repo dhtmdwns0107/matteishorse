@@ -12,7 +12,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5">@@@ test title space @@@</h1>
+          <h1 class="mb-5"><br><br><br></h1>
         </div>
       </div>
     </div>
@@ -34,7 +34,8 @@
     <input type="hidden" name="test_id" value="{{ question.test_id }}">
     <div> <p>Q{{ forloop.counter }}. {{ question.q_text }}</p></div>
     <div id="rb-{{ forloop.counter }}" class="rb">
-      <div class="rb-tab rb-tab" data-value="0">
+      <div class="rb-tab">전혀<br>아니다</div>
+      <div class="rb-tab" data-value="0">
         <div class="rb-spot" onclick="fnMove('{{ forloop.counter }}')">
           <span class="rb-txt">0</span>
         </div>
@@ -60,7 +61,8 @@
           <span class="rb-txt">4</span>
         </div>
       </div>
-      {% endif %}      
+      {% endif %}
+      <div class="rb-tab">매우<br>그렇다</div>
     </div>
   </div>
   <br>
