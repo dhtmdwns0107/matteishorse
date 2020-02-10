@@ -54,10 +54,11 @@ def signout(request):
 def mypage(request):
     user = User.objects.get(username = request.user.username)
     user_id = user.id
+    mindtest_list = Mindtest.objects.all()
     mypage_list = Mypage.objects.filter(user_id = user_id)
     myresult_list = Qresult.objects.all()
     
-    return render(request, 'matteapp/mypage.html', {'mypage_list': mypage_list, 'myresult_list': myresult_list})
+    return render(request, 'matteapp/mypage.html', {'mypage_list': mypage_list, 'myresult_list': myresult_list, 'mindtest_list' : mindtest_list})
 
 def test1(request):
     test_id = request.GET.get('test_id')
