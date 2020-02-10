@@ -90,6 +90,7 @@ def result(request):
         if result.res_div > int(num):
             break
         selected_id = result.res_id
+        selected_video = result.res_videolink
 
     choice = Choice(
         c_val = num,
@@ -150,4 +151,4 @@ def result(request):
     )
     mypage.save()
     
-    return render(request, 'matteapp/result.html', {'result_list' : result_list, 'selected_id' : selected_id, 'sum_list' : sum_list, 'max_score' : max_score})
+    return render(request, 'matteapp/result.html', {'result_list' : result_list, 'selected_id' : selected_id, 'sum_list' : sum_list, 'max_score' : max_score, "num" : num, "selected_video" : selected_video})
